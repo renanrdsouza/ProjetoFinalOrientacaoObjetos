@@ -1,25 +1,33 @@
 package ProjetoVideo;
 
 public class Video implements AcoesVideo{
-    private String video;
-    private boolean avaliacao;
+    private String titulo;
+    private int avaliacao;
     private int views;
     private int curtidas;
     private boolean reproduzindo;
 
+    public Video(String video) {
+        this.titulo = video;
+        this.avaliacao = 1;
+        this.views = 0;
+        this.curtidas = 0;
+        this.reproduzindo = false;
+    }
+
     public String getVideo() {
-        return this.video;
+        return this.titulo;
     }
 
     public void setVideo(String v) {
-        this.video = v;
+        this.titulo = v;
     }
 
-    public boolean getAvaliacao() {
+    public int getAvaliacao() {
         return this.avaliacao;
     }
 
-    public void setAvaliacao(boolean a) {
+    public void setAvaliacao(int a) {
         this.avaliacao = a;
     }
 
@@ -64,5 +72,16 @@ public class Video implements AcoesVideo{
     @Override
     public void like() {
         setCurtidas(getCurtidas() + 1);
+    }
+
+    @Override
+    public String toString() {
+        return "Video{" +
+                "titulo='" + titulo + '\'' +
+                ", avaliacao=" + avaliacao +
+                ", views=" + views +
+                ", curtidas=" + curtidas +
+                ", reproduzindo=" + reproduzindo +
+                '}';
     }
 }
